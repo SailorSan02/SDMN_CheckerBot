@@ -9,7 +9,7 @@
 | It can be obtained from https://telegram.dog/BotFather
 |
 */
-$config['botToken'] = "";
+$config['botToken'] = getenv('BOT_TOKEN');
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ $config['botToken'] = "";
 | ID can be obtained from https://telegram.dog/username_to_id_bot
 |
 */
-$config['adminID'] = "";
+$config['adminID'] = getenv('ADMIN_ID');
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ $config['adminID'] = "";
 | ID can be obtained from https://telegram.dog/BotFather
 |
 */
-$config['logsID'] =  "";
+$config['logsID'] =  getenv('LOGS_ID');
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ $config['logsID'] =  "";
 | By Default it's in IST
 |
 */
-$config['timeZone'] =  "Asia/Kolkata";
+$config['timeZone'] =  getenv('TIMEZONE') ?: "Asia/Kolkata";
 
 /*
 |--------------------------------------------------------------------------
@@ -52,10 +52,10 @@ $config['timeZone'] =  "Asia/Kolkata";
 | Database to Store User Data
 |
 */
-$config['db']['hostname'] =  "localhost";
-$config['db']['username'] =  "root";
-$config['db']['password'] =  "";
-$config['db']['database'] =  "checkerbot";
+$config['db']['hostname'] =  getenv('DB_HOST');
+$config['db']['username'] =  getenv('DB_USER');
+$config['db']['password'] =  getenv('DB_PASS');
+$config['db']['database'] =  getenv('DB_NAME');
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ $config['db']['database'] =  "checkerbot";
 | Value is in Seconds. "20" = 20seconds
 |
 */
-$config['anti_spam_timer'] =  "20";
+$config['anti_spam_timer'] =  getenv('ANTI_SPAM_TIMER') ?: "20";
 
 /*
 |--------------------------------------------------------------------------
@@ -78,5 +78,6 @@ $config['anti_spam_timer'] =  "20";
 | array('sk1','sk2','sk3')
 |
 */
-$config['sk_keys'] =  array('sk_live_69GKI0saLB8uIEnxzv8VTvRX');
+$config['sk_keys'] =  explode(',', getenv('SK_KEYS'));
+
 ?>
